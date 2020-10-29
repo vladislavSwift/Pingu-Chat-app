@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		A89175CB254ADC460017AF10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175CA254ADC460017AF10 /* AppDelegate.swift */; };
 		A89175CD254ADC460017AF10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175CC254ADC460017AF10 /* SceneDelegate.swift */; };
-		A89175CF254ADC460017AF10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175CE254ADC460017AF10 /* ViewController.swift */; };
+		A89175CF254ADC460017AF10 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175CE254ADC460017AF10 /* ConversationsViewController.swift */; };
 		A89175D2254ADC460017AF10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89175D0254ADC460017AF10 /* Main.storyboard */; };
 		A89175D4254ADC480017AF10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A89175D3254ADC480017AF10 /* Assets.xcassets */; };
 		A89175D7254ADC480017AF10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89175D5254ADC480017AF10 /* LaunchScreen.storyboard */; };
+		A89175E5254AFA230017AF10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175E4254AFA230017AF10 /* LoginViewController.swift */; };
+		A89175E8254AFA4A0017AF10 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175E7254AFA4A0017AF10 /* RegisterViewController.swift */; };
+		A89175EA254AFA8A0017AF10 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175E9254AFA8A0017AF10 /* PhotoViewerViewController.swift */; };
+		A89175EC254AFAC60017AF10 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175EB254AFAC60017AF10 /* VideoPlayerViewController.swift */; };
+		A89175EE254AFAF80017AF10 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175ED254AFAF80017AF10 /* NewConversationViewController.swift */; };
+		A89175F0254AFB1C0017AF10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175EF254AFB1C0017AF10 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A89175C7254ADC460017AF10 /* Pingu Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pingu Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A89175CA254ADC460017AF10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A89175CC254ADC460017AF10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A89175CE254ADC460017AF10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A89175CE254ADC460017AF10 /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
 		A89175D1254ADC460017AF10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A89175D3254ADC480017AF10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A89175D6254ADC480017AF10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A89175D8254ADC480017AF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A89175E4254AFA230017AF10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A89175E7254AFA4A0017AF10 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A89175E9254AFA8A0017AF10 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		A89175EB254AFAC60017AF10 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		A89175ED254AFAF80017AF10 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
+		A89175EF254AFB1C0017AF10 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,69 @@
 		A89175C9254ADC460017AF10 /* Pingu Chat */ = {
 			isa = PBXGroup;
 			children = (
-				A89175CA254ADC460017AF10 /* AppDelegate.swift */,
-				A89175CC254ADC460017AF10 /* SceneDelegate.swift */,
-				A89175CE254ADC460017AF10 /* ViewController.swift */,
-				A89175D0254ADC460017AF10 /* Main.storyboard */,
-				A89175D3254ADC480017AF10 /* Assets.xcassets */,
-				A89175D5254ADC480017AF10 /* LaunchScreen.storyboard */,
+				A89175E2254AF8390017AF10 /* Resources */,
+				A89175E1254AF8280017AF10 /* ViewModels */,
+				A89175E0254AF8180017AF10 /* Models */,
+				A89175DF254AF80A0017AF10 /* Views */,
+				A89175DE254AF7FD0017AF10 /* Controllers */,
 				A89175D8254ADC480017AF10 /* Info.plist */,
 			);
 			path = "Pingu Chat";
+			sourceTree = "<group>";
+		};
+		A89175DE254AF7FD0017AF10 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A89175CE254ADC460017AF10 /* ConversationsViewController.swift */,
+				A89175E4254AFA230017AF10 /* LoginViewController.swift */,
+				A89175E7254AFA4A0017AF10 /* RegisterViewController.swift */,
+				A89175E9254AFA8A0017AF10 /* PhotoViewerViewController.swift */,
+				A89175EB254AFAC60017AF10 /* VideoPlayerViewController.swift */,
+				A89175ED254AFAF80017AF10 /* NewConversationViewController.swift */,
+				A89175EF254AFB1C0017AF10 /* ProfileViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A89175DF254AF80A0017AF10 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A89175E3254AF88B0017AF10 /* Storyboards */,
+				A89175D3254ADC480017AF10 /* Assets.xcassets */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A89175E0254AF8180017AF10 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A89175E1254AF8280017AF10 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A89175E2254AF8390017AF10 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A89175CA254ADC460017AF10 /* AppDelegate.swift */,
+				A89175CC254ADC460017AF10 /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A89175E3254AF88B0017AF10 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A89175D0254ADC460017AF10 /* Main.storyboard */,
+				A89175D5254ADC480017AF10 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +204,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A89175CF254ADC460017AF10 /* ViewController.swift in Sources */,
+				A89175E5254AFA230017AF10 /* LoginViewController.swift in Sources */,
+				A89175E8254AFA4A0017AF10 /* RegisterViewController.swift in Sources */,
+				A89175EE254AFAF80017AF10 /* NewConversationViewController.swift in Sources */,
+				A89175CF254ADC460017AF10 /* ConversationsViewController.swift in Sources */,
+				A89175EC254AFAC60017AF10 /* VideoPlayerViewController.swift in Sources */,
 				A89175CB254ADC460017AF10 /* AppDelegate.swift in Sources */,
+				A89175F0254AFB1C0017AF10 /* ProfileViewController.swift in Sources */,
 				A89175CD254ADC460017AF10 /* SceneDelegate.swift in Sources */,
+				A89175EA254AFA8A0017AF10 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +358,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Pingu Chat/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +376,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Pingu Chat/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
