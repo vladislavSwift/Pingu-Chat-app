@@ -6,5 +6,9 @@ target 'Pingu Chat' do
   use_frameworks!
 
   # Pods for Pingu Chat
+pod 'Firebase/Core'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+
 
 end

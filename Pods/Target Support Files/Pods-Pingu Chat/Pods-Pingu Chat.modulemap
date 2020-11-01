@@ -1,0 +1,6 @@
+framework module Pods_Pingu_Chat {
+  umbrella header "Pods-Pingu Chat-umbrella.h"
+
+  export *
+  module * { export * }
+}
