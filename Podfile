@@ -12,9 +12,17 @@ pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 
-# Facebook login
+# Facebook Login
 pod 'FBSDKLoginKit'
 
+
+#Google Login
+pod 'GoogleSignIn'
+
+pod 'MessageKit'
+pod 'JGProgressHUD'
+pod 'RealmSwift'
+pod 'SDWebImage'
 
 
 end

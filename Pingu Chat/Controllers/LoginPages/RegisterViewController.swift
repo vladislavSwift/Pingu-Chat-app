@@ -234,6 +234,13 @@ class RegisterViewController: UIViewController {
                 guard authResult != nil, error == nil else {
                     print("Error occurred during user creation")
                     
+                    
+                    guard let self = self else {
+                        return
+                    }
+                    
+                    self.alertUserLoginError(message: "User with Email Address already Exists")
+                    
                     return
                 }
                 

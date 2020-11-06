@@ -186,6 +186,7 @@
 				A89175C4254ADC460017AF10 /* Frameworks */,
 				A89175C5254ADC460017AF10 /* Resources */,
 				78B477DE65024AE1BE6F30F5 /* [CP] Embed Pods Frameworks */,
+				3E353A891A64143075C0D499 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,6 +245,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3E353A891A64143075C0D499 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		78B477DE65024AE1BE6F30F5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
