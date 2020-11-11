@@ -50,7 +50,7 @@ extension DatabaseManager {
     
     /// Inserts Users to database
     
-    public func insertUser(with user: ChatAppUser) {
+    public func insertUser(with user: ChatAppUser, completion: @escaping (Bool) -> Void) {
         
         
         
@@ -58,7 +58,19 @@ extension DatabaseManager {
             "first_name": user.firstName,
             "last_name": user.lastName
             
-        ])
+        ], withCompletionBlock: { error, _ in
+            
+            guard  error == nil else {
+                
+                print("failed to write to database")
+                
+                completion(false)
+                return
+            }
+            
+            completion(true)
+            
+        })
         
     }
     
@@ -72,7 +84,10 @@ struct ChatAppUser {
     //un-encrypted password
     //let password:String
     
-    //let profilePictureUrl: String
+    var profiePictureFileName: String {
+        
+        return "\(safeEmail)_profile_picture.png"
+    }
     
     
 

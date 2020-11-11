@@ -8,9 +8,11 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class RegisterViewController: UIViewController {
     
+    private let spinner = JGProgressHUD(style: .dark)
     
     private let scrollView: UIScrollView = {
         
@@ -209,6 +211,9 @@ class RegisterViewController: UIViewController {
                 return
         }
         
+        
+        spinner.show(in: view)
+        
         //Performing firebase registeration
         
         
@@ -244,9 +249,79 @@ class RegisterViewController: UIViewController {
                     return
                 }
                 
-                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
-                                                                    lastName: lastName,
-                                                                    emailAddress: email))
+                
+                DispatchQueue.main.async {
+                    
+                    strongSelf.spinner.dismiss()
+                    
+                }
+                
+                let chatUser = ChatAppUser(firstName: firstName,
+                                           lastName: lastName,
+                                           emailAddress: email)
+                
+                DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
+                    
+                    if success {
+                        //upload profile picture
+                        
+                        
+                        
+                        if self?.imageView.image == UIImage(named: "addUser") {
+                            
+                            // imageView.image = UIImage(named: "person")
+                            
+                            self!.imageView.image = UIImage(systemName: "person.circle")
+                            
+                            guard let image = strongSelf.imageView.image, let data = image.pngData() else {
+                                
+                                
+                                return
+                            }
+                            
+                            let fileName = chatUser.profiePictureFileName
+                            
+                            StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
+                                
+                                switch result {
+                                    
+                                case .success(let downloadUrl):
+                                    UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                    print(downloadUrl)
+                                case .failure(let error):
+                                    print("storage manager error \(error)")
+                                }
+                                
+                            })
+                            
+                        } else {
+                            
+                            guard let image = strongSelf.imageView.image, let data = image.pngData() else {
+                                
+                                
+                                return
+                            }
+                            
+                            let fileName = chatUser.profiePictureFileName
+                            
+                            StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
+                                
+                                switch result {
+                                    
+                                case .success(let downloadUrl):
+                                    UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                    print(downloadUrl)
+                                case .failure(let error):
+                                    print("storage manager error \(error)")
+                                }
+                                
+                            })
+                            
+                        }
+                        
+                    }
+                    
+                })
                 
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
                 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6C0107F66B79BCA57674ADDB /* Pods_Pingu_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA4202FBE86BA1C63402912 /* Pods_Pingu_Chat.framework */; };
+		A81D34EC2556BF910065310E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D34EB2556BF910065310E /* ChatViewController.swift */; };
 		A890F1B7254F0B5200BC7D7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A890F1B6254F0B5200BC7D7F /* GoogleService-Info.plist */; };
 		A89175CB254ADC460017AF10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175CA254ADC460017AF10 /* AppDelegate.swift */; };
 		A89175CD254ADC460017AF10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175CC254ADC460017AF10 /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 		A89175EE254AFAF80017AF10 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175ED254AFAF80017AF10 /* NewConversationViewController.swift */; };
 		A89175F0254AFB1C0017AF10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175EF254AFB1C0017AF10 /* ProfileViewController.swift */; };
 		A896E896254B38B30063D046 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896E895254B38B30063D046 /* Extensions.swift */; };
+		A8DD3094255AFEE600447E44 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD3093255AFEE600447E44 /* StorageManager.swift */; };
 		A8EB14FB254F3FB500ABC226 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EB14FA254F3FB500ABC226 /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,7 @@
 		2EB40A0B7B18BD497EEF418C /* Pods-Pingu Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pingu Chat.debug.xcconfig"; path = "Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		45F4939C36AF2484AF3D05B4 /* Pods-Pingu Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pingu Chat.release.xcconfig"; path = "Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat.release.xcconfig"; sourceTree = "<group>"; };
 		6EA4202FBE86BA1C63402912 /* Pods_Pingu_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pingu_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A81D34EB2556BF910065310E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A890F1B6254F0B5200BC7D7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A89175C7254ADC460017AF10 /* Pingu Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pingu Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A89175CA254ADC460017AF10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +48,7 @@
 		A89175ED254AFAF80017AF10 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		A89175EF254AFB1C0017AF10 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A896E895254B38B30063D046 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A8DD3093255AFEE600447E44 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		A8EB14FA254F3FB500ABC226 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +114,7 @@
 				A89175EB254AFAC60017AF10 /* VideoPlayerViewController.swift */,
 				A89175ED254AFAF80017AF10 /* NewConversationViewController.swift */,
 				A89175EF254AFB1C0017AF10 /* ProfileViewController.swift */,
+				A81D34EB2556BF910065310E /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				A89175CC254ADC460017AF10 /* SceneDelegate.swift */,
 				A896E895254B38B30063D046 /* Extensions.swift */,
 				A8EB14FA254F3FB500ABC226 /* DatabaseManager.swift */,
+				A8DD3093255AFEE600447E44 /* StorageManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -318,7 +324,9 @@
 				A89175CB254ADC460017AF10 /* AppDelegate.swift in Sources */,
 				A89175F0254AFB1C0017AF10 /* ProfileViewController.swift in Sources */,
 				A89175CD254ADC460017AF10 /* SceneDelegate.swift in Sources */,
+				A81D34EC2556BF910065310E /* ChatViewController.swift in Sources */,
 				A89175EA254AFA8A0017AF10 /* PhotoViewerViewController.swift in Sources */,
+				A8DD3094255AFEE600447E44 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
