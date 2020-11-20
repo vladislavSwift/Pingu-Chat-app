@@ -54,7 +54,7 @@ class ConversationTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        userImageView.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
+        userImageView.frame = CGRect(x: 10, y: 10, width: 80, height: 80)
         
         userNameLabel.frame = CGRect(x: userImageView.right + 10,
                                      y: 10,

@@ -193,19 +193,27 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             return
         }
         
+        print("sending: \(text)")
+        
+        
+         let newMessage = Message(sender: selfSender, messageId: messageId, sentDate: Date(), kind: .text(text))
+        
         //Send message
         
         if isNewConversation {
             
             //Create a new Convo in database
             
-            let newMessage = Message(sender: selfSender, messageId: messageId, sentDate: Date(), kind: .text(text))
+           
             
-            DatabaseManager.shared.createNewConversation(with: otherUserEmail, name: self.title ?? "User", firstMessage: newMessage, completion: { success in
+            DatabaseManager.shared.createNewConversation(with: otherUserEmail, name: self.title ?? "User", firstMessage: newMessage, completion: { [weak self] success in
                 
                 if success {
                     
                     print("Message sent")
+                    
+                    self?.isNewConversation = false
+                    
                 } else {
                     
                     print("Message sending error")
@@ -216,8 +224,25 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             
         } else {
             
+            
+            guard let conversationId = conversationId,
+                let name = self.title else {
+                return
+            }
+            
             //append to existing conversation data
             
+            DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: otherUserEmail, name: name, newMessage: newMessage, completion: { success in
+                
+                if success {
+                    
+                    print("message sent to append to  existing convo")
+                } else {
+                    
+                    print("Message failed to send and append to existing convo")
+                }
+                
+            })
             
             
         }
