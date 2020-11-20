@@ -226,6 +226,13 @@ class LoginViewController: UIViewController {
             }
             
             let user = result.user
+            
+            let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+            
+            
+            UserDefaults.standard.set(email, forKey: "email")
+            UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
+            
             print("logged in user:\(user)")
             
             strongSelf.navigationController?.dismiss(animated: true, completion: nil)
@@ -287,8 +294,11 @@ extension LoginViewController: LoginButtonDelegate {
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         
+        spinner.show(in: view)
+        
         guard let token = result?.token?.tokenString else {
             print("User Failed to log in with Facebook")
+            spinner.dismiss()
             return
         }
         
@@ -322,6 +332,8 @@ extension LoginViewController: LoginButtonDelegate {
             }
             
             
+            UserDefaults.standard.set(email, forKey: "email")
+            UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
             
             DatabaseManager.shared.userWithEmailExists(with: email, completion: { exists in
                 
@@ -388,6 +400,8 @@ extension LoginViewController: LoginButtonDelegate {
                         
                         print("Facebook credential login failed - \(error)")
                         
+                        strongSelf.spinner.dismiss()
+                        
                     }
                     
                     
@@ -395,6 +409,8 @@ extension LoginViewController: LoginButtonDelegate {
                 }
                 
                 print("Successfully logged user log in")
+                
+            strongSelf.spinner.dismiss()
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
                 
             })
