@@ -10,6 +10,7 @@
 		6C0107F66B79BCA57674ADDB /* Pods_Pingu_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA4202FBE86BA1C63402912 /* Pods_Pingu_Chat.framework */; };
 		A81D34EC2556BF910065310E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D34EB2556BF910065310E /* ChatViewController.swift */; };
 		A8530F302565582000D415CF /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8530F2F2565582000D415CF /* ConversationTableViewCell.swift */; };
+		A872A940256E6A3B006D4E25 /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A872A93F256E6A3B006D4E25 /* NewConversationCell.swift */; };
 		A890F1B7254F0B5200BC7D7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A890F1B6254F0B5200BC7D7F /* GoogleService-Info.plist */; };
 		A89175CB254ADC460017AF10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175CA254ADC460017AF10 /* AppDelegate.swift */; };
 		A89175CD254ADC460017AF10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175CC254ADC460017AF10 /* SceneDelegate.swift */; };
@@ -34,6 +35,7 @@
 		6EA4202FBE86BA1C63402912 /* Pods_Pingu_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pingu_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A81D34EB2556BF910065310E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A8530F2F2565582000D415CF /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
+		A872A93F256E6A3B006D4E25 /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 		A890F1B6254F0B5200BC7D7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A89175C7254ADC460017AF10 /* Pingu Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pingu Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A89175CA254ADC460017AF10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				A89175E3254AF88B0017AF10 /* Storyboards */,
 				A89175D3254ADC480017AF10 /* Assets.xcassets */,
 				A8530F2F2565582000D415CF /* ConversationTableViewCell.swift */,
+				A872A93F256E6A3B006D4E25 /* NewConversationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A89175E5254AFA230017AF10 /* LoginViewController.swift in Sources */,
+				A872A940256E6A3B006D4E25 /* NewConversationCell.swift in Sources */,
 				A8EB14FB254F3FB500ABC226 /* DatabaseManager.swift in Sources */,
 				A89175E8254AFA4A0017AF10 /* RegisterViewController.swift in Sources */,
 				A89175EE254AFAF80017AF10 /* NewConversationViewController.swift in Sources */,

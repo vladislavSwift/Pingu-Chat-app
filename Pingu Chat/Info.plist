@@ -63,6 +63,8 @@
 	<string>Please allow the app to access your camera </string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Please allow the app to access your gallery</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Please allow access to send audio and video messages</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
