@@ -7,23 +7,25 @@ target 'Pingu Chat' do
 
   # Pods for Pingu Chat
   
-# Firebase
-pod 'Firebase/Core'
-pod 'Firebase/Auth'
-pod 'Firebase/Database'
-pod 'Firebase/Storage'
+  # Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
-# Facebook Login
-pod 'FBSDKLoginKit'
+  #Firebase Crashlyitics
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
+  
+  # Facebook Login
+  pod 'FBSDKLoginKit'
+  
+  #Google Login
+  pod 'GoogleSignIn'
 
-
-#Google Login
-pod 'GoogleSignIn'
-
-pod 'MessageKit'
-pod 'JGProgressHUD'
-pod 'RealmSwift'
-pod 'SDWebImage'
-
+  pod 'MessageKit'
+  pod 'JGProgressHUD'
+  pod 'RealmSwift'
+  pod 'SDWebImage'
 
 end

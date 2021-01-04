@@ -9,7 +9,7 @@
 import UIKit
 import JGProgressHUD
 
-class NewConversationViewController: UIViewController {
+final class NewConversationViewController: UIViewController {
     
     
     public var completion: ((SearchResult) -> (Void))?
@@ -66,7 +66,7 @@ class NewConversationViewController: UIViewController {
         
         searchBar.delegate = self
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         navigationController?.navigationBar.topItem?.titleView = searchBar
         
@@ -153,7 +153,7 @@ extension NewConversationViewController: UISearchBarDelegate {
         
         spinner.show(in: view)
         
-        self.searchUsers(query: text)
+        searchUsers(query: text)
         
     }
     
@@ -183,7 +183,9 @@ extension NewConversationViewController: UISearchBarDelegate {
                     self?.hasFetched = true
                     self?.users = userCollection
                     self?.filter(with: query)
+                    
                 case .failure(let error):
+                    
                     print("Failed to get users \(error)")
                 }
                 
@@ -213,7 +215,7 @@ extension NewConversationViewController: UISearchBarDelegate {
         
         self.spinner.dismiss()
         
-        let results : [SearchResult] = self.users.filter({
+        let results : [SearchResult] = users.filter({
             
             
             guard let email = $0["email"], email != safeEmail else {
@@ -251,26 +253,17 @@ extension NewConversationViewController: UISearchBarDelegate {
         
         if results.isEmpty {
             
-            self.noResultsLabel.isHidden = false
-            self.tableView.isHidden = true
+            noResultsLabel.isHidden = false
+            tableView.isHidden = true
             
         } else {
             
-            self.noResultsLabel.isHidden = true
-            self.tableView.isHidden = false
-            self.tableView.reloadData()
+            noResultsLabel.isHidden = true
+            tableView.isHidden = false
+            tableView.reloadData()
         }
-        
         
     }
     
-    
 }
 
-
-struct SearchResult {
-    
-    let name: String
-    let email: String
-    
-}

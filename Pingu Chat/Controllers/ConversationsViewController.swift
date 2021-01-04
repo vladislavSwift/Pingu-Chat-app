@@ -11,24 +11,9 @@ import FirebaseAuth
 import JGProgressHUD
 
 
-struct Conversation {
-    
-    let id: String
-    let name: String
-    let otherUserEmail: String
-    let latestMessage: LatestMessage
-}
+/// Controller to show the list of all conversations
 
-struct LatestMessage {
-    let date: String
-    let message: String
-    let isRead: Bool
-}
-
-
-
-
-class ConversationsViewController: UIViewController {
+final class ConversationsViewController: UIViewController {
     
     private let spinner = JGProgressHUD(style: .dark)
     
@@ -60,17 +45,15 @@ class ConversationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapComposeButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapComposeButton))
+        
         
         view.addSubview(tableView)
         view.addSubview(noConversationsLabel)
         
         setupTableView()
         
-        fetchConversations()
-        
         startListeningForConversation()
-        
         
         loginObserver = NotificationCenter.default.addObserver(forName: .didLogInNotification, object: nil, queue: .main, using: { [weak self] _ in
             
@@ -111,9 +94,13 @@ class ConversationsViewController: UIViewController {
                 
                 guard !conversations.isEmpty else {
                     
+                    self?.tableView.isHidden = true
+                    self?.noConversationsLabel.isHidden = false
                     return
                 }
                 
+               self?.noConversationsLabel.isHidden = true
+                self?.tableView.isHidden = false
                 self?.conversation = conversations
                 
                 DispatchQueue.main.async {
@@ -124,7 +111,11 @@ class ConversationsViewController: UIViewController {
                 }
                 
             case .failure(let error):
+                
                 print("fatal error occurred while getting messages \(error)")
+                
+                self?.tableView.isHidden = true
+                self?.noConversationsLabel.isHidden = false
                 
             }
             
@@ -136,6 +127,7 @@ class ConversationsViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         tableView.frame = view.bounds
+        noConversationsLabel.frame = CGRect(x: 10, y: (view.height-100)/2, width: view.width-20, height: 100)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -268,18 +260,10 @@ class ConversationsViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    
-    private func fetchConversations() {
-        
-        tableView.isHidden = false
-        
-    }
-    
-    
-    
 }
 
 extension ConversationsViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return conversation.count
     }
@@ -329,25 +313,28 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
             //begin deleting of conversations
             
             let conversationId = conversation[indexPath.row].id
-            
-            
+    
             tableView.beginUpdates()
             
-            DatabaseManager.shared.deleteConversation(conversationId: conversationId, completion: { [weak self] success in
+            self.conversation.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
+            
+            DatabaseManager.shared.deleteConversation(conversationId: conversationId, completion: { success in
                 
-                if success {
+                if !success {
                     
-                    self?.conversation.remove(at: indexPath.row)
                     
-                    self?.tableView.deleteRows(at: [indexPath], with: .left)
+//                    self?.conversation.remove(at: indexPath.row)
+//
+//                    tableView.deleteRows(at: [indexPath], with: .left)
+                    
+                    
+                    // add model and row back and show  error alert
                     
                 }
                 
                 
             })
-            
-            
-            
             
             
             tableView.endUpdates()

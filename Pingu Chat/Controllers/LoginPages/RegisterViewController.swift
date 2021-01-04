@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import JGProgressHUD
 
-class RegisterViewController: UIViewController {
+final class RegisterViewController: UIViewController {
     
     private let spinner = JGProgressHUD(style: .dark)
     
@@ -32,6 +32,7 @@ class RegisterViewController: UIViewController {
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 2
         imageView.layer.borderColor = UIColor.lightGray.cgColor
+        imageView.backgroundColor = .secondarySystemBackground
         return imageView
     }()
     
@@ -47,7 +48,7 @@ class RegisterViewController: UIViewController {
         field.placeholder = "Enter Email Address"
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
-        field.backgroundColor = .white
+        field.backgroundColor = .secondarySystemBackground
         return field
     }()
     
@@ -64,7 +65,7 @@ class RegisterViewController: UIViewController {
         field.placeholder = "Enter Password"
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
-        field.backgroundColor = .white
+        field.backgroundColor = .secondarySystemBackground
         field.isSecureTextEntry = true
         return field
     }()
@@ -81,7 +82,7 @@ class RegisterViewController: UIViewController {
         field.placeholder = "First Name"
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
-        field.backgroundColor = .white
+        field.backgroundColor = .secondarySystemBackground
         return field
     }()
     
@@ -97,7 +98,7 @@ class RegisterViewController: UIViewController {
         field.placeholder = "Last Name"
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
-        field.backgroundColor = .white
+        field.backgroundColor = .secondarySystemBackground
         return field
     }()
     
@@ -120,7 +121,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Create account"
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         // navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done, target: self, action: #selector(didTapRegister))
         
@@ -256,9 +257,16 @@ class RegisterViewController: UIViewController {
                     
                 }
                 
+                
+                
+                UserDefaults.standard.setValue(email, forKey: "email")
+                UserDefaults.standard.setValue("\(firstName) \(lastName)", forKey: "name")
+                
+                
                 let chatUser = ChatAppUser(firstName: firstName,
                                            lastName: lastName,
                                            emailAddress: email)
+            
                 
                 DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
                     
@@ -267,11 +275,11 @@ class RegisterViewController: UIViewController {
                         
                         
                         
-                        if self?.imageView.image == UIImage(named: "addUser") {
+                        if strongSelf.imageView.image == UIImage(named: "addUser") {
                             
                             // imageView.image = UIImage(named: "person")
                             
-                            self!.imageView.image = UIImage(systemName: "person.circle")
+                            strongSelf.imageView.image = UIImage(systemName: "person.circle")
                             
                             guard let image = strongSelf.imageView.image, let data = image.pngData() else {
                                 
