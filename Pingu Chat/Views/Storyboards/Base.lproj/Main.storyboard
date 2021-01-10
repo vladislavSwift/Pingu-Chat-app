@@ -65,11 +65,42 @@
                     <navigationItem key="navigationItem" title="Profile" id="Hjv-QX-JSz"/>
                     <connections>
                         <outlet property="tableView" destination="W8z-dN-qFu" id="g1v-aA-9IF"/>
+                        <segue destination="HAo-ob-K6a" kind="show" identifier="ViewProfilePicViewController" id="i0N-Kd-TZr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgj-bE-hig" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="741" y="836"/>
+        </scene>
+        <!--ViewProfilePicViewController-->
+        <scene sceneID="rIH-8K-lHd">
+            <objects>
+                <viewController storyboardIdentifier="ViewProfilePicViewController" title="ViewProfilePicViewController" id="HAo-ob-K6a" customClass="ViewProfilePicViewController" customModule="Pingu_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GYf-hM-Pwp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lk3-kk-ba3">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bAz-0n-ZrN" firstAttribute="bottom" secondItem="lk3-kk-ba3" secondAttribute="bottom" id="A8u-Xh-EaS"/>
+                            <constraint firstItem="lk3-kk-ba3" firstAttribute="top" secondItem="bAz-0n-ZrN" secondAttribute="top" id="dnH-7m-Eew"/>
+                            <constraint firstItem="bAz-0n-ZrN" firstAttribute="trailing" secondItem="lk3-kk-ba3" secondAttribute="trailing" id="svV-i9-hj9"/>
+                            <constraint firstItem="lk3-kk-ba3" firstAttribute="leading" secondItem="bAz-0n-ZrN" secondAttribute="leading" id="z1D-LB-hHB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bAz-0n-ZrN"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T4r-ys-uK0"/>
+                    <connections>
+                        <outlet property="profilePicLarge" destination="lk3-kk-ba3" id="8eR-3o-abW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kuw-iO-N03" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1649" y="837"/>
         </scene>
         <!--Chats-->
         <scene sceneID="bMS-hB-CKQ">

@@ -368,12 +368,14 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                     
                     let newMessage = Message(sender: selfSender, messageId: messageId, sentDate: Date(), kind: .photo(media))
                     
-                    DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: strongSelf.otherUserEmail, name: name, newMessage: newMessage, completion: { success in
+                    DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: strongSelf.otherUserEmail, name: name, newMessage: newMessage, completion: {[weak self] success in
                         
                         
                         if success {
                             
                             print("Sent photo successfully to other conversation")
+                            
+                            self?.messageInputBar.inputTextView.text = ""
                         } else {
                             
                             print("error while sending photo to other conversation")
@@ -476,6 +478,8 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             
             return
         }
+        
+        messageInputBar.inputTextView.text = nil
         
         print("sending: \(text)")
         

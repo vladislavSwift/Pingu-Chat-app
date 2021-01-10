@@ -11,20 +11,32 @@ import FirebaseAuth
 import FBSDKLoginKit
 import GoogleSignIn
 import SDWebImage
+import JGProgressHUD
 
-final class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController  {
     
     @IBOutlet var tableView: UITableView!
     
+    private let spinner = JGProgressHUD(style: .light)
+    
     
     var data = [ProfileViewModel]()
+    
+   // var urlProfile: URL!
+    
+    
+    let imageView: UIImageView = {
+       let theImageView = UIImageView()
+       theImageView.translatesAutoresizingMaskIntoConstraints = true //calling this property adds the imageView to view
+        
+        theImageView.isUserInteractionEnabled = true
+       return theImageView
+    }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
-
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
         
         data.append(ProfileViewModel(viewModelType: .info,
@@ -42,7 +54,7 @@ final class ProfileViewController: UIViewController {
             
             let alertLogOut = UIAlertController(title: "Log out from Account?",
                                                        message: "",
-                                                       preferredStyle: .actionSheet)
+                                                       preferredStyle: .alert)
                    
                    
                    alertLogOut.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { [weak self] _ in
@@ -93,29 +105,29 @@ final class ProfileViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.tableHeaderView = createTableHeader()
+        //tableView.tableHeaderView = createTableHeader()
         
+         let email = UserDefaults.standard.value(forKey: "email") as! String
+               
+               let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+               let filename = safeEmail + "_profile_picture.png"
+               
+               let path = "images/"+filename
+               
+               let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: 300))
+               
+               headerView.backgroundColor = .link
+               
         
-    }
-    
-    
-    func createTableHeader() -> UIView? {
+        tableView.tableHeaderView = headerView
         
-        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
-            
-            return nil
-        }
+        imageView.frame = CGRect(x: (view.width-250)/2, y: 31, width: 250, height: 250)
         
-        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
-        let filename = safeEmail + "_profile_picture.png"
-        
-        let path = "images/"+filename
-        
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: 300))
-        
-        headerView.backgroundColor = .link
-        
-        let imageView = UIImageView(frame: CGRect(x: (view.width-150)/2, y: 75, width: 150, height: 150))
+        //headerView.addSubview(imageView)
+        //viewFrameImage.addSubview(imageView)
+
+       // imageView.image = UIImage(named: "logo")
+            // var imageView = UIImageView(frame: CGRect(x: (view.width-150)/2, y: 75, width: 150, height: 150))
         
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .white
@@ -123,33 +135,130 @@ final class ProfileViewController: UIViewController {
         imageView.layer.borderWidth = 3
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = imageView.width/2
+        imageView.isUserInteractionEnabled = true
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+               
         headerView.addSubview(imageView)
         
-        StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
-    
-            
-            switch result {
-            case .success(let url):
-                self?.downloadImage(imageView: imageView, url: url)
-                
-                
-            case .failure(let error):
-                print("An error occured \(error)")
-            }
-        })
+        spinner.show(in: imageView)
         
-        return headerView
+               //Adding tap gesture to the image
+               
+//              let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+//
+//               imageView.addGestureRecognizer(tapGestureRecognizer)
+           
+               StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
+           
+                   
+                   switch result {
+                   case .success(let url):
+                       //self?.downloadImage(imageView: imageView, url: url)
+                    
+                    self?.imageView.sd_setImage(with: url, completed: nil)
+                    //self?.urlProfile = url
+            
+                    print("the url is \(url)")
+                    
+                    self?.spinner.dismiss()
+               
+                   case .failure(let error):
+                       print("An error occured \(error)")
+                   }
+               })
+        
     
     }
+    
+
+    @objc func imageTapped(sender: UITapGestureRecognizer)
+    {
+        
+        
+        ///presentPhotoActionSheet()  :-  function call not required
+        
+        
+        let actionSheet = UIAlertController(title: "Profile Photo", message: "Select", preferredStyle: .alert)
+        
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            actionSheet.addAction(UIAlertAction(title: "View Picture", style: .default, handler: { [weak self] _ in
+                
+                self?.viewProfilePic()
+                
+            }))
+            
+            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] _ in
+                
+                self?.presentCamera()
+                
+            }))
+            
+            actionSheet.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { [weak self]_ in
+                
+                self?.presentPhotoPicker()
+            }))
+            
+            
+            present(actionSheet, animated: true)
+        
+    
+    }
+    
+    
+    func presentPhotoActionSheet() {
+        
+        ///Function body - template 
+        
+    }
+    
+    
+    
+    func presentCamera() {
+        
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+        
+        
+    }
+    
+    func presentPhotoPicker() {
+        
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+        
+    }
+    
+    
+    func viewProfilePic() {
+
+     let secondVC = storyboard?.instantiateViewController(withIdentifier: "ViewProfilePicViewController") as! ViewProfilePicViewController
+        secondVC.photo = imageView.image
+     navigationController?.pushViewController(secondVC, animated: true)
+        
+    }
+    
+
+    
     
     func downloadImage(imageView: UIImageView, url: URL) {
         
         imageView.sd_setImage(with: url, completed: nil)
         
+        
         DispatchQueue.main.async {
             
              self.tableView.reloadData()
+            
         }
         
         //manually download the image everytime
@@ -227,5 +336,75 @@ class ProfileTableViewCell: UITableViewCell {
         
         
     }
+    
+}
+
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+           
+           picker.dismiss(animated: true, completion: nil)
+           
+           //print(info)
+        
+        spinner.show(in: imageView)
+           
+           guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return}
+           
+           self.imageView.image = selectedImage
+           
+           // upload image
+                   guard let image = self.imageView.image,
+                       let data = image.pngData() else {
+                           return
+                   }
+                   
+                  
+                    
+                  let fullName = UserDefaults.standard.value(forKey: "name") as! String
+                   let email = UserDefaults.standard.value(forKey: "email") as! String
+
+                   
+                   let fullNameArr = fullName.components(separatedBy: " ")
+
+                   let firstName = fullNameArr[0]
+                   let lastName = fullNameArr[1]
+                   
+                   
+                   let chatUser = ChatAppUser(firstName: firstName,
+                   lastName: lastName,
+                   emailAddress: email)
+                   
+                   
+                   //let filename = chatUser.profilePictureFileName
+                   
+                   let filename = chatUser.profiePictureFileName
+                   
+                   StorageManager.shared.uploadProfilePicture(with: data, fileName: filename, completion: { [weak self] result in
+                       switch result {
+                       case .success(let downloadUrl):
+                           UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                           print(downloadUrl)
+                           self?.spinner.dismiss()
+                       case .failure(let error):
+                           print("Storage maanger error: \(error)")
+                       }
+               
+                   })
+                   
+           
+       }
+       
+       func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+           
+           picker.dismiss(animated: true, completion: nil)
+           
+       }
+    
+    
+    
+    
     
 }

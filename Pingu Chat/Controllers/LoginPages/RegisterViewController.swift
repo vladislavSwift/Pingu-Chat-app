@@ -391,7 +391,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
     
     func presentPhotoActionSheet() {
         
-        let actionSheet = UIAlertController(title: "Choose Profile Photo", message: "Open With", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Choose Profile Photo", message: "Open With", preferredStyle: .alert)
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         

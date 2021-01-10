@@ -17,7 +17,7 @@ class ConversationTableViewCell: UITableViewCell {
         
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 50
+        imageView.layer.cornerRadius = 40
         imageView.layer.masksToBounds = true
         return imageView
         

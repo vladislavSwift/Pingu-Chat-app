@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6C0107F66B79BCA57674ADDB /* Pods_Pingu_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA4202FBE86BA1C63402912 /* Pods_Pingu_Chat.framework */; };
 		A81D34EC2556BF910065310E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D34EB2556BF910065310E /* ChatViewController.swift */; };
+		A824E4A425A9E8F800C57A10 /* ViewProfilePicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824E4A325A9E8F800C57A10 /* ViewProfilePicViewController.swift */; };
 		A8296E7F25A391E500EDAF1B /* ConversationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8296E7E25A391E500EDAF1B /* ConversationsModels.swift */; };
 		A8296E8125A392B900EDAF1B /* ChatModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8296E8025A392B800EDAF1B /* ChatModels.swift */; };
 		A8296E8325A3935E00EDAF1B /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8296E8225A3935E00EDAF1B /* SearchResult.swift */; };
@@ -28,6 +29,7 @@
 		A89175EA254AFA8A0017AF10 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175E9254AFA8A0017AF10 /* PhotoViewerViewController.swift */; };
 		A89175EE254AFAF80017AF10 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175ED254AFAF80017AF10 /* NewConversationViewController.swift */; };
 		A89175F0254AFB1C0017AF10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89175EF254AFB1C0017AF10 /* ProfileViewController.swift */; };
+		A893C55825A47EFD00DD0624 /* ProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A893C55725A47EFD00DD0624 /* ProfilePictureViewController.swift */; };
 		A896E896254B38B30063D046 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896E895254B38B30063D046 /* Extensions.swift */; };
 		A8DD3094255AFEE600447E44 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD3093255AFEE600447E44 /* StorageManager.swift */; };
 		A8EB14FB254F3FB500ABC226 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EB14FA254F3FB500ABC226 /* DatabaseManager.swift */; };
@@ -38,6 +40,7 @@
 		45F4939C36AF2484AF3D05B4 /* Pods-Pingu Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pingu Chat.release.xcconfig"; path = "Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat.release.xcconfig"; sourceTree = "<group>"; };
 		6EA4202FBE86BA1C63402912 /* Pods_Pingu_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pingu_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A81D34EB2556BF910065310E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		A824E4A325A9E8F800C57A10 /* ViewProfilePicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProfilePicViewController.swift; sourceTree = "<group>"; };
 		A8296E7E25A391E500EDAF1B /* ConversationsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsModels.swift; sourceTree = "<group>"; };
 		A8296E8025A392B800EDAF1B /* ChatModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModels.swift; sourceTree = "<group>"; };
 		A8296E8225A3935E00EDAF1B /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 		A89175E9254AFA8A0017AF10 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
 		A89175ED254AFAF80017AF10 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		A89175EF254AFB1C0017AF10 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A893C55725A47EFD00DD0624 /* ProfilePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureViewController.swift; sourceTree = "<group>"; };
 		A896E895254B38B30063D046 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A8DD3093255AFEE600447E44 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		A8EB14FA254F3FB500ABC226 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				A89175CE254ADC460017AF10 /* ConversationsViewController.swift */,
 				A89175F1254B02490017AF10 /* LoginPages */,
 				A89175E9254AFA8A0017AF10 /* PhotoViewerViewController.swift */,
+				A893C55725A47EFD00DD0624 /* ProfilePictureViewController.swift */,
+				A824E4A325A9E8F800C57A10 /* ViewProfilePicViewController.swift */,
 				A89175ED254AFAF80017AF10 /* NewConversationViewController.swift */,
 				A89175EF254AFB1C0017AF10 /* ProfileViewController.swift */,
 				A81D34EB2556BF910065310E /* ChatViewController.swift */,
@@ -210,8 +216,8 @@
 				A89175C4254ADC460017AF10 /* Frameworks */,
 				A89175C5254ADC460017AF10 /* Resources */,
 				A8B29773259DDA400050825D /* Run Script */,
-				9279B7D3E2DB4E3F1C2B7517 /* [CP] Embed Pods Frameworks */,
-				A62D62F7CD41D4D2218E25D2 /* [CP] Copy Pods Resources */,
+				5924B0DB7235D86755A69E70 /* [CP] Embed Pods Frameworks */,
+				0D8501F3EDC33D4B26BC58A7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -270,24 +276,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9279B7D3E2DB4E3F1C2B7517 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A62D62F7CD41D4D2218E25D2 /* [CP] Copy Pods Resources */ = {
+		0D8501F3EDC33D4B26BC58A7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -302,6 +291,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5924B0DB7235D86755A69E70 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pingu Chat/Pods-Pingu Chat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A8B29773259DDA400050825D /* Run Script */ = {
@@ -352,6 +358,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A89175E5254AFA230017AF10 /* LoginViewController.swift in Sources */,
+				A893C55825A47EFD00DD0624 /* ProfilePictureViewController.swift in Sources */,
+				A824E4A425A9E8F800C57A10 /* ViewProfilePicViewController.swift in Sources */,
 				A8296E8525A3944D00EDAF1B /* ProfileViewModel.swift in Sources */,
 				A872A940256E6A3B006D4E25 /* NewConversationCell.swift in Sources */,
 				A8EB14FB254F3FB500ABC226 /* DatabaseManager.swift in Sources */,

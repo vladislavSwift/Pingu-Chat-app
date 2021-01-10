@@ -23,7 +23,9 @@ target 'Pingu Chat' do
   #Google Login
   pod 'GoogleSignIn'
 
+  
   pod 'MessageKit'
+  pod 'MessageInputBar'
   pod 'JGProgressHUD'
   pod 'RealmSwift'
   pod 'SDWebImage'

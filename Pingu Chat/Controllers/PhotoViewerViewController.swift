@@ -37,6 +37,7 @@ final class PhotoViewerViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         title = "Photos"
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .red
@@ -111,10 +112,10 @@ final class PhotoViewerViewController: UIViewController, UIScrollViewDelegate {
         super.viewWillAppear(true)
        // navigationController?.setNavigationBarHidden(true, animated: true)
         
-        self.navigationController?.hidesBarsOnTap = true
+        navigationController?.hidesBarsOnTap = true
                //navigationController?.setNavigationBarHidden(true, animated: true)
 
-        self.tabBarController?.tabBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
     }
     
     
@@ -122,9 +123,9 @@ final class PhotoViewerViewController: UIViewController, UIScrollViewDelegate {
         super.viewWillDisappear(true)
         navigationController?.setNavigationBarHidden(false, animated: false)
         
-        self.navigationController?.hidesBarsOnTap = false
+        navigationController?.hidesBarsOnTap = false
         
-        self.tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
     }
     
     
